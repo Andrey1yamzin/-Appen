@@ -8,9 +8,80 @@
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
+
+<div class="wrapper">
+
+    <div class="content-wrapper">
+        <div class="wrapper_ownership blocks">
+            <span class="title">Тип собственности</span>
+            <select class="content--ownership select" >
+                <option></option>
+                <option>Государственная</option>
+                <option>Муниципальная</option>
+                <option>Частная</option>
+              </select>
+        </div>
+
+
+
+        <div class="wrapper_room blocks">
+            <span class="title">Тип помещения</span>
+            <select class="content--room select">
+                <option></option>
+                <option>Торговое</option>
+                <option>Офисное</option>
+                <option>Складское</option>
+                <option>Производственное</option>
+                <option>Земельный участок</option>
+              </select>
+        </div>
+
+
+        <div class="wrapper_area blocks">
+            <span class="title">Район</span>
+            <select class="content--area select">
+                <option></option>
+                <option>Заводский</option>
+                <option>Кировский</option>
+                <option>Ленинский</option>
+                <option>Рудничный</option>
+                <option>Центральный</option>
+              </select>
+        </div>
+
+
+
+
+        <div class="wrapper_square blocks">
+            <span class="title">Площадь объекта</span>
+            <select class="content--square select">
+                <option></option>
+                <option>5-15 кв.м.</option>
+                <option>15-30 кв.м.</option>
+                <option>30-50 кв.м.</option>
+                <option>50-70 кв.м.</option>
+                <option>70-100 кв.м.</option>
+                <option>100-250 кв.м.</option>
+                <option>свыше 250 кв.м.</option>
+              </select>
+        </div>
+<div class="wrapper--btn">
+    <input type="button" value="сброс" class="btn-reload">
+    <input type="button" value="поиск" class="btn-search">
+</div>
     
+    
+    </div>
+    <div class="data-wrapper">
+    
+    </div>
+</div>
+
+
+
     <script>
         reaquire('./render.js');
     </script>
+    <script src="app.js"></script>
 </body>
 </html>

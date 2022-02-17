@@ -1,3 +1,213 @@
-body{
+body {
+    min-height: auto;
+    scroll-behavior: smooth;
+    text-rendering: optimizeSpeed;
+    line-height: 1.5;
     background: #0f336c;
+    color: #fff;
+  }
+  
+  *::before,
+  *::after {
+    box-sizing: border-box;
+  }
+
+  body,
+  h1,
+  h2,
+  h3,
+  h4,
+  p,
+  ul[class],
+  ol[class],
+  li,
+  figure,
+  figcaption,
+  blockquote,
+  dl,
+  dd {
+    margin: 0;
+  }
+
+  .wrapper{
+    display: flex;
+    width: 100%;
 }
+.content-wrapper{
+    width: 100%;
+    height: 350px;
+    /* border-bottom: 2px solid #fff;
+    border-right: 2px solid #fff; */
+    padding: 30px 0 0 30px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+.title{
+    margin: 0px 10px;
+    text-transform: uppercase;
+    text-align: center;
+    font-size: 18px;
+}
+.select{
+    width: 200px;
+    height: 25px;
+    font-size: 18px;
+    border-radius: 5px;
+}
+.blocks{
+    margin: 20px 0;
+}
+.content--ownership{}
+.content--room{
+    margin-left: 36px;
+}
+.content--area{
+    margin-left: 137px;
+}
+.content--square{
+    margin-left: 18px;
+}
+
+
+.data-wrapper{
+    width: 100%;
+    height: 300px;
+    background: #fff;
+    margin: 30px 0 0 0;
+    padding: 30px 30px;
+}
+
+
+.btn-search{
+    
+    width: 100px;
+    height: 25px;
+    text-transform: uppercase;
+    font-size: 18px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    margin: 10px 20px;
+}
+.btn-reload{
+    margin-left: 100px;
+    margin-top: 10px;
+    width: 100px;
+    height: 25px;
+    text-transform: uppercase;
+    font-size: 18px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    
+}
+
+@media (max-width: 921px){
+    .wrapper{
+        flex-direction: column;
+    }
+    .content-wrapper, .data-wrapper{
+        width: 100%;
+    }
+    
+}
+    
+/* .content-form_dropdown-wrapper{
+    width: auto;
+    margin: 5px 20px;
+    position: relative;
+}
+.content-form_dropdown-button{
+    position: relative;
+    display: block;
+    width: 310px;
+    height: 40px;
+    text-align: left;
+    background: #fff;
+    border: 1px solid #7e9bbd;
+    border-radius: 5px;
+    cursor: pointer;
+    padding: 5px 10px 0px 10px;
+    font-size: 16px;
+    font-family: 'Roboto', sans-serif;
+    font-weight: 300;
+    color: #000;
+    overflow: hidden;
+    line-height: 30px;
+}
+.content-form_dropdown-button::after{
+    content:'';
+    width: 0;
+    height: 0;
+    border-width: 7.4px 5px 0 5px;
+    border-color: rgb(73, 73, 73) transparent transparent transparent;
+    border-style:solid;
+    position: absolute;
+    top: 40%;
+    right: 10px;
+    transform: translate(-50%);
+    vertical-align: sub;
+    pointer-events: none;
+}
+.content-form_dropdown-list{
+    position: absolute;
+    left: 0;
+    top: 74px;
+    background: #fff;
+    box-shadow: 0px 5px 9px rgba(176, 198, 225, 0.6);
+    border-radius: 6px;
+    width: 300px;
+    z-index: 2;
+    display: none;
+    overflow: scroll;
+    overflow-x:hidden;
+    height: 150px;
+}
+.content-form_dropdown-list_item{
+    width: 100%;
+    overflow: hidden;
+    padding: 5px 5px;
+    border: 1px solid #7e9bbd;
+    border-bottom: 0;
+    transition: 0.3s all;  
+    font-family: 'Roboto', sans-serif;
+    font-weight: 300;
+}
+.content-form_dropdown-list_item:first-child{
+    border-radius: 6px 6px 0 0;
+}
+.content-form_dropdown-list_item:last-child{
+    border-bottom: 1px solid #7e9bbd;
+    border-radius: 0 0 6px 6px;
+
+}    
+.content-form_dropdown-list_item:hover{
+    cursor: pointer;
+    background: rgba(176, 198, 225, 0.26);
+}
+.content-form_dropdown-list_input{
+    display: none;
+}
+.content-form_dropdown-list--visible{
+    display: block;
+}
+
+.content-form_dropdown-list::-webkit-scrollbar{
+    width: 10px;
+    background-color: #f9f9fd;
+}
+.content-form_dropdown-list::-webkit-scrollbar-thumb{
+    border-radius: 10px;
+    background-color: #7e9bbd;
+}
+
+
+
+.content-form_dropdown-button--hide{
+    display: none;
+}
+.content-form_dropdown-list_input--visible{
+    display: block;
+} */
+
