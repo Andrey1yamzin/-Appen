@@ -113,7 +113,34 @@ body {
     }
     
 }
-    
+.wrapper-loadfile{
+    display: flex;
+    position: absolute;
+    align-items: center;
+}
+    .visible-btn__load--file{
+        width: 25px;
+        height: 25px;
+        background: url(icons/iconplus.png)50% 50%/cover no-repeat;
+        margin: 10px 10px 0 10px;
+        cursor: pointer;
+    }
+    .visible-btn__load--file_close{
+        width: 25px;
+        height: 25px;
+        background: url(icons/iconplus.png)50% 50%/cover no-repeat;
+        margin: 10px 10px 0 10px;
+        cursor: pointer;
+        transform: rotate(134deg);
+        
+    }
+    .btn-load__file{
+        display: none;
+    }
+    .btn-load__file--visible{
+        display: block;
+        padding: 10px 0 0 0;
+    }
 /* .content-form_dropdown-wrapper{
     width: auto;
     margin: 5px 20px;
