@@ -4,7 +4,7 @@
 //     let key = this.value;
 //     console.log(key);
 // });
-
+let files = [];
 //кнопка сброса
 let btnReload = document.querySelector('.btn-reload');
 //кнопка поиска
@@ -15,18 +15,104 @@ let listRoom = document.querySelector('.content--room');
 let listArea = document.querySelector('.content--area');
 let listSquare = document.querySelector('.content--square');
 
-let visibleBtnLoadFile = document.querySelector('.visible-btn__load--file');
-let btnLoadFile = document.querySelector('.btn-load__file');
+const preview = document.createElement('div');
+preview.classList.add('preview');
+
+
+
+let btnshowLoadBody = document.querySelector('.visible-btn__load--file');
+let loadBody = document.querySelector('.wrapper__loadfile');
+let btnCloseLoadBody = document.querySelector('.loadfile-close');
 
 let fileUploader = document.getElementById('fileUploader');
+let btnLoadFile = document.querySelector('.loadfile-loading');
 
-
-
-visibleBtnLoadFile.addEventListener('click', function(){
-    btnLoadFile.classList.toggle('btn-load__file--visible');
-    visibleBtnLoadFile.classList.toggle('visible-btn__load--file_close');
-    
+fileUploader.insertAdjacentElement('afterend', preview);
+//выбор нескольких файлов
+let options = {
+    multi: true,
+}
+ if(options.multi){
+    fileUploader.setAttribute('multiple', true);
+ }
+// начало кода открытие и закрытие тела загрузки файла
+btnshowLoadBody.addEventListener('click', function(){
+    showLoadBody(); 
 });
+btnCloseLoadBody.addEventListener('click', function(){
+    hideLoadBody();
+});
+function showLoadBody(){
+    loadBody.classList.remove('load__hide')
+    loadBody.classList.add('load__show');
+}
+function hideLoadBody(){
+    loadBody.classList.remove('load__show')
+    loadBody.classList.add('load__hide');
+    preview.innerHTML = '';
+}
+// конец кода открытие и закрытие тела загрузки файла
+
+// начало кода  кнопки выбора файла
+const triggerInput = () => fileUploader.click();
+const changeHandl = (event)=> {
+    if(!event.target.files.length){
+        return
+    }
+ 
+
+    files= Array.from(event.target.files);
+    preview.innerHTML = '';
+    files.forEach(file => {
+        if(!file.type.match('application')){
+            return
+        }
+
+        const reader = new FileReader()
+        reader.onload = ev => {
+            console.log(ev);
+            preview.insertAdjacentHTML('afterbegin', `
+            <div class="preview--excel">
+            <div class="preview--remove" data-name="${file.name}">&times;</div>
+            <img src="icons/excel.png" alt="${file.name}"/>
+            <span>${file.name}</span>
+            </div>
+            `)
+
+        }
+        reader.readAsDataURL(file);
+        
+    })
+
+
+};
+
+
+
+
+
+preview.addEventListener('click',(event)=>{
+    console.log(event.target.dataset);
+    if(!event.target.dataset.name){
+        return
+    }
+
+        const {name} = event.target.dataset;
+        files = files.filter(file => file.name !== name);
+        const block = preview.querySelector(`[data-name= "${name}"]`).closest('.preview--excel');
+        block.remove();
+    
+    
+    })
+
+btnLoadFile.addEventListener('click', triggerInput);
+fileUploader.addEventListener('change', changeHandl)
+
+// конец кода кнопки выбора файла
+
+
+
+
 
 
 
