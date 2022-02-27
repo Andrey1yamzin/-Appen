@@ -18,20 +18,23 @@ let listSquare = document.querySelector('.content--square');
 const preview = document.createElement('div');
 preview.classList.add('preview');
 
-
-
 let btnshowLoadBody = document.querySelector('.visible-btn__load--file');
 let loadBody = document.querySelector('.wrapper__loadfile');
 let btnCloseLoadBody = document.querySelector('.loadfile-close');
 
 let fileUploader = document.getElementById('fileUploader');
 let btnLoadFile = document.querySelector('.loadfile-loading');
+let btnLoadingSave = document.querySelector('.loadfile-save');
 
 fileUploader.insertAdjacentElement('afterend', preview);
 //выбор нескольких файлов
 let options = {
     multi: true,
+    onUpload(files){
+    console.log('Files: ', files);
+    }
 }
+// let onUpload = options.onUpload;
  if(options.multi){
     fileUploader.setAttribute('multiple', true);
  }
@@ -63,6 +66,7 @@ const changeHandl = (event)=> {
 
     files= Array.from(event.target.files);
     preview.innerHTML = '';
+    btnLoadingSave.style.display = 'inline';
     files.forEach(file => {
         if(!file.type.match('application')){
             return
@@ -87,6 +91,9 @@ const changeHandl = (event)=> {
 
 };
 
+const saveHundler = () => {
+    options.onUpload(files);
+}
 
 
 
@@ -99,22 +106,19 @@ preview.addEventListener('click',(event)=>{
 
         const {name} = event.target.dataset;
         files = files.filter(file => file.name !== name);
+        if(!files.length){
+            btnLoadingSave.style.display = 'none';
+        }
         const block = preview.querySelector(`[data-name= "${name}"]`).closest('.preview--excel');
         block.remove();
-    
-    
-    })
-
+    });
 btnLoadFile.addEventListener('click', triggerInput);
-fileUploader.addEventListener('change', changeHandl)
-
+fileUploader.addEventListener('change', changeHandl);
 // конец кода кнопки выбора файла
+// сохранение файлов
+btnLoadingSave.addEventListener('click', saveHundler);
 
-
-
-
-
-
+// сохранение файлов
 
 btnSearch.addEventListener('click',function(){
 console.log(listOwnership.value);
@@ -122,15 +126,9 @@ console.log(listRoom.value);
 console.log(listArea.value);
 console.log(listSquare.value);
 });
-
-
 btnReload.addEventListener('click',function(){
     pageReload();
-})
-
-
-
-
+});
 function pageReload(){
     window.location.reload();
-}
+};

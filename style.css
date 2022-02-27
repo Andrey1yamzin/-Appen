@@ -193,6 +193,7 @@ body {
 }
 
 .loadfile-save{
+    display: none;
     width: 120px;
     height: 30px;
     background: #fff;
@@ -205,6 +206,7 @@ body {
     top: 0;
     left: 0;
     z-index: 2;
+    
 }
 .loadfile-save:hover{
     background: #3481fd;
