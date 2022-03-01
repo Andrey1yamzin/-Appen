@@ -4,6 +4,7 @@
 //     let key = this.value;
 //     console.log(key);
 // });
+
 let files = [];
 //кнопка сброса
 let btnReload = document.querySelector('.btn-reload');
@@ -31,7 +32,13 @@ fileUploader.insertAdjacentElement('afterend', preview);
 let options = {
     multi: true,
     onUpload(files){
-    console.log('Files: ', files);
+ 
+    for (let key in files) {
+        console.log( files[key].path ); 
+        sessionStorage.setItem(key, files[key].path );
+        //доделать получение ссылки на файл чтобы его прочитать и перезаписать на новый файл console.log( sessionStorage.getItem(0));
+      }
+      
     }
 }
 // let onUpload = options.onUpload;
@@ -93,6 +100,7 @@ const changeHandl = (event)=> {
 
 const saveHundler = () => {
     options.onUpload(files);
+   
 }
 
 
@@ -132,3 +140,4 @@ btnReload.addEventListener('click',function(){
 function pageReload(){
     window.location.reload();
 };
+
