@@ -1,7 +1,24 @@
-
+//сделать функциуй чтобы запустить издругогофайла
+const xlsx = require('xlsx');
 let i = 0;
+let urlDataOne = '';
+let urlDataTwo = '';
 
-while (i < 2) { 
-    console.log(sessionStorage.getItem(i));
-  i++;
+for (let i = 0; i < 2; i++) { 
+urlLink(i);  
 };
+
+function urlLink(url){
+  if(urlDataOne == ''){
+    urlDataOne = sessionStorage.getItem(url);
+    return;
+  }else{
+    urlDataTwo = sessionStorage.getItem(url);
+  }
+};
+
+
+
+
+console.log(urlDataOne);
+console.log(urlDataTwo);
