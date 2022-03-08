@@ -1,5 +1,7 @@
 const path = require('path');
 const url = require('url'); 
+const xlsx = require('xlsx');
+
 const {app, BrowserWindow} = require('electron');
 const { dirname } = require('path');
 
@@ -26,3 +28,4 @@ function createWindow(){
 }
 
 app.on('ready', createWindow);
+
