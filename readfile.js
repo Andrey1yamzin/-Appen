@@ -1,5 +1,4 @@
 const xlsx = require('xlsx');
-const express = require('express');
 
 const filePath = 'baseimport/kugi.xlsx';
 const workbook = xlsx.readFile(filePath);
