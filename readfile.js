@@ -1,28 +1,44 @@
-const xlsx = require('xlsx');
 
-const filePath = 'baseimport/kugi.xlsx';
-const workbook = xlsx.readFile(filePath);
-const worksheet = workbook.Sheets[workbook.SheetNames[0]];
-
-let posts = [];
-let post = {};
-
-for (let cell in worksheet) {
-    const cellAsString = cell.toString();
-
-    if (cellAsString[1] !== 'r' && cellAsString[1] !== 'm' && cellAsString[1] > 1) {
-        if (cellAsString[0] === 'A') {
-            post.title = worksheet[cell].v;
-        }
-        if (cellAsString[0] === 'B') {
-            post.author = worksheet[cell].v;
-        }
-        if (cellAsString[0] === 'C') {
-            post.released = worksheet[cell].v;
-            posts.push(post);
-            post = {};
-        }
+let data = request('http://localhost:3000');
+async function request(url, method = 'GET', data = null){
+    
+try{
+    const headers = {};
+    let body
+    if(data){
+        headers['Content-Type'] = 'application/json'
+        body = JSON.stringify(data)
     }
-}
 
-console.log(posts);
+   const response = await fetch(url, {
+        method,
+        headers,
+        body
+    })
+    return await response.json();  
+
+} catch(e){
+    console.warn('Error');
+}
+};
+
+
+
+
+let parse ;
+data.then(function (f1) {
+parse = (f1.posts);
+
+
+for(key in parse){
+    
+}
+parse.forEach(function(element, index, array) {
+    record(element);
+});
+});
+
+function record(el){
+console.log(el);
+}
+// document.querySelector('.data-wrapper').innerHTML = `<table class="data-base"></table>`
