@@ -19,13 +19,17 @@ function server(){
   
     if (cellAsString[1] !== 'r' && cellAsString[1] !== 'm' && cellAsString[1] > 1) {
         if (cellAsString[0] === 'A') {
-            post.title = worksheet[cell].v;
+            post.индекс = worksheet[cell].v;
         }
         if (cellAsString[0] === 'B') {
-            post.author = worksheet[cell].v;
+            post.категория = worksheet[cell].v;
         }
         if (cellAsString[0] === 'C') {
-            post.released = worksheet[cell].v;
+          post.цена = worksheet[cell].v;
+            
+        }
+        if(cellAsString[0] === 'D'){
+            post.колличетсво = worksheet[cell].v;
             posts.push(post);
             post = {};
         }

@@ -34,11 +34,22 @@ for(key in parse){
     
 }
 parse.forEach(function(element, index, array) {
-    record(element);
+    record(element, index);
 });
 });
 
-function record(el){
-console.log(el);
+function record(el, int){
+document.querySelector('.data-wrapper').innerHTML = `<table class="data-base"></table>`;
+for(key in el){
+    let colum = document.createElement('td');
+    colum.innerHTML = `<th>${key}</th>`;
+    document.querySelector('.data-base').appendChild(colum);
+
+};  
+console.log(int);
+// for(let i = 0; i < ; i++){
+//     // console.log(Object.values(el).join(' '));
+//     console.log(i)
+// }
+
 }
-// document.querySelector('.data-wrapper').innerHTML = `<table class="data-base"></table>`
