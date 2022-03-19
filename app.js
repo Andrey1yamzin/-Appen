@@ -127,12 +127,6 @@ btnLoadingSave.addEventListener('click', saveHundler);
 
 // сохранение файлов
 
-btnSearch.addEventListener('click',function(){
-console.log(listOwnership.value);
-console.log(listRoom.value);
-console.log(listArea.value);
-console.log(listSquare.value);
-});
 btnReload.addEventListener('click',function(){
     pageReload();
 });

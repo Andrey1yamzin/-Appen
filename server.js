@@ -17,26 +17,29 @@ function server(){
   for (let cell in worksheet) {
     const cellAsString = cell.toString();
   
-    if (cellAsString[1] !== 'r' && cellAsString[1] !== 'm' && cellAsString[1] > 1) {
+    if (cellAsString[1] !== 'r' && cellAsString[1] !== 'm') {
         if (cellAsString[0] === 'A') {
-            post.индекс = worksheet[cell].v;
+            post.Номер = worksheet[cell].v;
         }
         if (cellAsString[0] === 'B') {
-            post.категория = worksheet[cell].v;
+            post.собственность = worksheet[cell].v;
         }
         if (cellAsString[0] === 'C') {
-          post.цена = worksheet[cell].v;
+            post.помещение = worksheet[cell].v;
             
         }
         if(cellAsString[0] === 'D'){
-            post.колличетсво = worksheet[cell].v;
-            posts.push(post);
-            post = {};
+            post.Район = worksheet[cell].v;
         }
+        if(cellAsString[0] === 'E'){
+          post.Площадь = worksheet[cell].v;
+          posts.push(post);
+          post = {};
+      }
+        
     }
   }
-  
-//   console.log(posts);
+
   let datas= posts;
   
   express.get('http://localhost:3000', (req, res)=>{
