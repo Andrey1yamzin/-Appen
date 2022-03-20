@@ -48,7 +48,7 @@ let area = filterValue.includes(arraySearchFilter[2]);
 let size = filterValue.includes(arraySearchFilter[3]);
     if(own === true && room === true && area === true && size === true){
         oneColumnRow(filterValue);
-        // exportData(filterValue);
+        unloadData(filterValue);
     }
 
 
@@ -119,9 +119,14 @@ let arrayValues = valuesNumberItem;
             tbodysize.innerHTML = `<tr><td><span>${arrayValues[4]}</span></td></tr>`;
             document.querySelector('.table-size').appendChild(tbodysize);
 };
+let unloadFile = [];
+function unloadData(dataFile){
+    return unloadFile.push(dataFile);
+}
 
-// function exportData(dataFile){
-//     let importd = []
-//     importd.apply(dataFile)
-//     console.log(importd)
-// }
+let btnUnload = document.querySelector('.btn-unload');
+btnUnload.addEventListener('click', function(){
+    console.log(unloadFile)
+})
+
+//что бы сделать объект нужно попробовать получить ключ с данных полученных с сервара и данные которые приходят массивом соединить это key value
