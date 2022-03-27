@@ -127,6 +127,13 @@ function unloadData(dataFile){
 let btnUnload = document.querySelector('.btn-unload');
 btnUnload.addEventListener('click', function(){
     console.log(unloadFile)
+    messageText.style.display = 'block';
 })
 
-//что бы сделать объект нужно попробовать получить ключ с данных полученных с сервара и данные которые приходят массивом соединить это key value
+
+let messageText = document.querySelector('.wrapper-text_for_message');
+let btnCloseMessage = document.querySelector('.close-message');
+btnCloseMessage.addEventListener('click', function(){
+    messageText.style.display = 'none';
+    window.location.reload();
+})

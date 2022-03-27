@@ -8,7 +8,7 @@
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
-    <div class="wrapper__loadfile load__hide">
+    <!-- <div class="wrapper__loadfile load__hide">
         <div class="loadfile">
         <div class="loadfile_content">
             <input type="file" id="fileUploader" name="base" accept=".xls, .xlsx" class="loadfile-input">
@@ -16,9 +16,19 @@
             <button class="loadfile-save">Сохранить файл</button>
             <button class="loadfile-close">Закрыть</button>
         </div>
-    </div></div>
+    </div></div> 
     
-    <div class="visible-btn__load--file"></div>
+    <div class="visible-btn__load--file"></div> -->
+
+<div class="wrapper-text_for_message">
+    <div class="text-for-message">
+        <div class="message-text">
+            <div class="close-message">
+            </div>
+
+        </div>
+    </div>
+</div>
 
 <div class="wrapper">
     
@@ -79,10 +89,25 @@
                 <option>свыше 250 кв.м.</option>
               </select>
         </div>
+
+
+        <div class="wrapper_name blocks">
+            <span class="title">Имя: </span>
+            <input type="text" class="text_name">
+        </div>
+        <div class="wrapper_surname blocks">
+            <span class="title">Фамилия: </span>
+            <input type="text" class="text_surname">
+        </div>
+
+        <div class="wrapper_patronymic blocks">
+            <span class="title">Отчество: </span>
+            <input type="text" class="text_patronymic">
+        </div>
 <div class="wrapper--btn">
     <input type="button" value="сброс" class="btn-reload">
     <input type="button" value="поиск" class="btn-search">
-    <input type="button" value="выгрузить" class="btn-unload btn-unload--hide">
+    <input type="button" value="сформировать" class="btn-unload btn-unload--hide">
 </div>
     
     
